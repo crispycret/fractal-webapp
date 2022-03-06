@@ -1,0 +1,12 @@
+#canvas-container {
+  display: flex;
+  justify-content: center;
+  background-color: #282c34;
+  }
+  
+
+#canvas-settings {
+  display: flex;
+  justify-content: center;
+  background-color: #282c34;
+}

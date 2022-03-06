@@ -1,0 +1,61 @@
+DATE: 3/4/2022
+Author: Brandon Nadeau
+
+
+Fractal Engine
+
+A webapp that allows a user to generate a fractal zoom movie, img or gif.
+
+
+The movie version of the fractal engine is the main overarching feature of the project.
+The gif version of the fractal engine is range of keyframes that can be auto trimmed to fit a specific file size on render.
+The img version of the fractak engine is a snapshot of a keyframe of the overall movie version of fractal engine.
+
+While the movie version is the ultimate goal and my unsufficient understanding of HTML Canvas elements and Web development in general I will start and prototype the features in reverse order.
+
+This will most likely cause version 2.0 of the project to be almost entirely refactored, but as this is a learning project for me, splitting the final version of this initial idea into 2 seperate projects that attain the same goal is fine if not more beneficial to highlight the importance of the understanding of how to build a system to solve a problem.
+
+Agile development will be the process framwork that I use to develop this webapp. I  will use the understanding I have gained from my school to the best of my abilities to show to myself what I actually understand or don't understand.
+This will also be open sourced upon completion to recieve feedback of where my misunderstanding are and hopefully this can become a guide to others in learning how to build a system from scratch on your own.
+
+
+While many features can be appended to this project later, such as a social media extension to showcases discoveries in the fractal engine.
+
+
+The type of fractals the system should ultimatley have is an total encompassment of all known fractals.
+A method should be developed to allow people to attempt to model their own fractals.
+An effort should be made in using AI to generate new fractals, perhaps unknown ones that could have a significant impact in some form of understanding.
+
+
+The basic types of fractals to include in the first generation would be Sierpiński triangle, Julia sets, mandlebrot sets and a few other of the well known fractals if it does not increase the time of completion.
+They can always be added later if the development is done properly and modularly.
+
+
+# Rough Draft Epics:
+I as a user would like to be able to save my generated fractal as a movie, gif or image.
+I as a user would like to be able to manually select from a list of fractal types to generate a fractal.
+I as a user would like to be able to click a button that will randomly generate the type of fractal i have selected and with a random color scheme.
+I as a user would like to be able to click a button that will randomly generate an kind of fractal.
+
+I as a user would like to be able to share this fractal engine object with others on social media but mantain security and ownership of the object.
+I as a user would like to be able to share this fractal engine object with others on social media and have a way from them to modify the object and re share it with me and others.
+
+I as a user would like to be able to overaly different fractals onto real images, uploaded videos and fractal engine projects.
+I as a user would like to be able to use keyframes to create a zooming/unzooming fractal movie, gif or to save as a image.
+I as a user would like to be able to modify attributes of the fractal such as nodes/resolution (depends on fractal, i think?), iterations, color schemes of different values of groups.
+I as a user would like to be able to zoom in real time using my mouse as the focal point and the mouse wheel (or +,-) to zoom in and out (requires a massive amount of computation power i believe).
+
+
+
+
+
+
+# USE CASES:
+I as a user, would like to be able to generate different types of fractals with as little effort possible. ( HIGH PRITORITY )
+I as a user, would like to be able to download the generated fractal as different image types.
+I as a user, would like to be able to save multiple generated fractal so that I can modify them later.
+
+I as a user, would like to be able to generate different types of fractals with as much effort as possible. ( MEDIUM PRIORITY )spa
+I as a user would like to use keyframes to set paramaters and zoom locations to create a moving image, gif, movie with a parameter for smoothing.
+
+I as a user, would like to be able to attempt to create a new type of fractal both starting visually and mathematically. ( COMPLEX LOW PRIORITY)
