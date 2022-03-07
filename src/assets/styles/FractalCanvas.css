@@ -1,12 +1,46 @@
-#canvas-container {
-  display: flex;
+#fractal-generator {
+  display: inline-flex;
   justify-content: center;
-  background-color: #282c34;
+  background-color: green;
+  padding: 5vw;
+}
+
+#canvas-container {
+  display: inline-flex;
+  justify-content: center;
+  background-color: blue;
+  padding: 5vh 0vw;
   }
   
 
 #canvas-settings {
-  display: flex;
-  justify-content: center;
+  background-color: orange;
+  justify-content: left;
   background-color: #282c34;
+}
+
+
+.attribute {
+  padding: 1vh 1vw;
+  display: flex;
+  background-color: red;
+}
+
+.attribute label {
+  padding: 1vh 1vw;
+  max-width: 60%;
+  min-width: 60%;
+  display: flex;
+  background-color: red;
+}
+.attribute input {
+}
+
+
+#footer {
+  /* width: 10vw;; */
+  height:10vh;
+  background-color: #282c34;
+  border-radius: .1vw;
+  border: solid #1a1c20 .2vw;
 }
