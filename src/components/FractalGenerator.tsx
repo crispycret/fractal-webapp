@@ -2,6 +2,8 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import '../assets/styles/FractalCanvas.css';
 
+const react_csv = require('react-csv');
+
 
 const useMountEffect = (fun:any) => useEffect(fun, [])
 
@@ -9,32 +11,71 @@ const useMountEffect = (fun:any) => useEffect(fun, [])
 // Create a canvas to draw on.
 export const FractalCanvas = () => {
   
+  // Canvas Elements
   const canvasRef = useRef<HTMLCanvasElement>(null);
   var canvasObj = canvasRef.current;
   var ctx = canvasObj?.getContext('2d');
 
-  const focusPoint = 0;
-
+  // Default parameters to calculate the mandelbrot set numbers.
+  const defaultMaxIterations = 250.0;
   const defaultMagnification = 250.0;
   const defaultPanX = 2.25;
   const defaultPanY = 1.2;
 
-  var [maxIterations, setMaxIterations] = useState('13');
+  // Mandelbrot set parameters
+  var [maxIterations, setMaxIterations] = useState(String(defaultMaxIterations));
   var [magnificationFactor, setMagnifictionFactor] = useState(String(defaultMagnification));
+ 
+  var [boundry, setBoundry] = useState('5');
+  var [inverse, setInverse] = useState(false);
+  
   var [panX, setPanX] = useState(String(defaultPanX));
   var [panY, setPanY] = useState(String(defaultPanY));
   
   var [xOffset, setXOffset] = useState('0');
   var [yOffset,setYOffset] = useState('0');
   
-  var [boundry, setBoundry] = useState('5');
-  var [inverse, setInverse] = useState(true);
+
+
+  // Record Data to CSV 
+
+  const headers = [
+    {label:"Iteration", key: "iter"},
+    {label:"Magnification", key: "mag"},
+    {label:"Boundry", key: "boundry"},
+    {label:"Inverse", key: "inverse"},
+    {label:"Panel X", key: "panX"}, 
+    {label:"Panel Y", key: "panY"}, 
+    {label:"Magnification X", key: "magX"}, 
+    {label:"Magnification Y", key: "magY"}, 
+    {label:"X Offset", key: "xOffset"}, 
+    {label:"Y Offset", key: "YOffset"}, 
+  ];
+
+  var data:Array<any> = [];
+  var iterationData = {};
+
+  const csvReport = {
+    data: data,
+    headers: headers,
+    filename: 'mandelbrot_001.csv'
+  };
+
+
+
+
 
   useMountEffect(setup_canvas);
 
   useEffect(() => {
       draw_canvas();
- }, [maxIterations, magnificationFactor, panX, panY, inverse, xOffset, yOffset]);
+ }, []
+//  [maxIterations, magnificationFactor, panX, panY, inverse, xOffset, yOffset]
+ );
+
+
+
+
 
  
   function setup_canvas() {
@@ -68,22 +109,26 @@ export const FractalCanvas = () => {
     for(var x=0; x < canvasObj.width; x++) {
       for(var y=0; y < canvasObj.height; y++) {
 
-        var mag_x =  x/Number(magnificationFactor) - Number(panX);
-        var mag_y =  y/Number(magnificationFactor) - Number(panY);
-        
-        var belongsToSet = checkIfBelongsToMandelbrotSet2(mag_x, mag_y);        
+        var mag_x =  x / Number(magnificationFactor) - Number(panX);
+        var mag_y =  y / Number(magnificationFactor) - Number(panY);
+          
+        var belongsToSet = checkIfBelongsToMandelbrotSet (mag_x, mag_y);       
+
         if(belongsToSet == 0) {
           ctx.fillStyle = '#000';
           ctx.fillRect(x,y, 1,1); // Draw a black pixel
-      } else {
-          ctx.fillStyle = 'hsl(0, 100%, ' + belongsToSet + '%)';
+        } 
+        
+        else {
+          ctx.fillStyle = 'hsl(220, 100%, ' + belongsToSet + '%)';
           ctx.fillRect(x,y, 1,1); // Draw a colorful pixel
-      }  
-      } 
-  }
-}
+        }
 
-  function checkIfBelongsToMandelbrotSet2 (x: number, y: number): Number{
+      } 
+    }
+  }
+
+  function checkIfBelongsToMandelbrotSet (x: number, y: number): Number{
 
     var real: number = x;
     var imaginary: number = y;
@@ -96,27 +141,28 @@ export const FractalCanvas = () => {
 
       real = tempRealComponent;
       imaginary = tempImaginaryComponent;
-    }
 
-    // In the Mandelbrot set
-    if (inverse) {
-      if (real * imaginary > Number(boundry))
-      return i / Number(maxIterations) * 100.00;
+      
+      // Return a number as a percentage
+      if (inverse){
+        if(real * imaginary < Number(boundry))
+          return (i/Number(maxIterations) * 100);
+      }
+      else {
+        if(real * imaginary > Number(boundry))
+          return (i/Number(maxIterations) * 100);
+    } 
+      
     }
-    else {
-      if (real * imaginary < Number(boundry))
-        return i / Number(maxIterations) * 100.00;
-    }
+    return 0;   // Return zero if in set 
 
-    return 0; // Not in the set
-  }
+    }
 
 
 
   function focusEvent (event: React.MouseEvent<HTMLCanvasElement, MouseEvent>) {
 
     // function focus (event: MouseEvent) {
-
     // console.log(event.clientX);
     // console.log(event.offsetX);
 
@@ -134,8 +180,11 @@ export const FractalCanvas = () => {
   function focus() {
     var multiplier: number  = (defaultMagnification / Number(magnificationFactor))
 
-    setPanX(String(defaultPanX * multiplier + Number(xOffset)));    
-    setPanY(String(defaultPanY * multiplier + Number(yOffset)));
+    var offset = Number(xOffset) / Number(magnificationFactor);
+    setPanX(String(defaultPanX * multiplier + offset));
+
+    offset = Number(yOffset) / Number(magnificationFactor);
+    setPanY(String(defaultPanY * multiplier + offset));
   }
 
 
