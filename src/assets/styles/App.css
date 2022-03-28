@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+#canvas-container {
+  margin-top: 10vh;
+  display: inline flex;
+}
+
+#canvas {
+  background-color: black;
+/* 
+  width: 600px;
+  height: 300px; 
+*/
+  min-width: 600px;
+  min-height: 300px;
+}
+
+#parameters {
+  display: block;
+  padding-right: 1vw;
+}
+
+
+.param {
+  display: block;
+  padding-right: 1vw;
+}
+
+.param label {
+  padding-right: 2vw;
+  float: left;
+}
+.param input {
+  float: right;
+}
