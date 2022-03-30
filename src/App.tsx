@@ -110,7 +110,7 @@ function App() {
 
     console.log("Fill")
 
-    draw_mandelbrot(ctx, content)
+    draw_mandelbrot(ctx, Number(temp.iters), content)
     return;
   }
 

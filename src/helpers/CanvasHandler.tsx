@@ -1,28 +1,29 @@
 
 
 
-export const draw_mandelbrot = (ctx:any, content:any) => {
+export const draw_mandelbrot = (ctx:any, max_iters:number, content:any) => {
     
   console.log('draw_mandelbrot');
   var in_set:any = content[0]
   var out_set:any = content[1]
 
   var u = 0
+
   for (var point in in_set) {
 
     var x = parseInt(in_set[point][0]);
     var y = parseInt(in_set[point][1]);
     var i = parseInt(in_set[point][2]);
 
-    var colorValue = i / 300 * 100
+    var colorValue = i / max_iters * 100
     
     ctx.fillStyle = 'hsl(0, 100%, ' + colorValue + '%)';
     ctx.fillRect(x, y, 1, 1)
   }
 
   for (var point in out_set) {
-    var x = parseInt(point[0]);
-    var y = parseInt(point[1]);
+    var x = parseInt(in_set[point][0]);
+    var y = parseInt(in_set[point][1]);
 
     ctx.fillStyle = 'hsl(220, 100%, ' + 30 + '%)';
     ctx.fillRect(x, y, 1, 1)
