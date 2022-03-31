@@ -1,3 +1,10 @@
+# Fractal Web App
+A multi repo project. See the Fractal Rest API for fractal logic.
+
+This is the frontend of a simple fractal generation application.
+The backend uses a Python Flask Rest API to generate the fractals based off of user defined parameters feed from the frontend.
+The backend uses a AWS RDS database to save application data. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
