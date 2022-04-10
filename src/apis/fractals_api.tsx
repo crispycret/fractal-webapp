@@ -19,7 +19,8 @@ export interface GenerateMandelbrotStruct {
 
 export const generate_mandelbrot = async (params: GenerateMandelbrotStruct): Promise<Array<any> | null>  => {
 
-    var query = `https://fractal-rest-api.herokuapp.com/mandelbrot?width=${params.width}&height=${params.height}&$iters=${params.iters}&zoom=${params.zoom}&camx=${params.camx}&camy=${params.camy}`
+    // var query = `https://fractal-rest-api.herokuapp.com/mandelbrot?width=${params.width}&height=${params.height}&$iters=${params.iters}&zoom=${params.zoom}&camx=${params.camx}&camy=${params.camy}`
+    var query = `http://localhost:5000/mandelbrot?width=${params.width}&height=${params.height}&$iters=${params.iters}&zoom=${params.zoom}&camx=${params.camx}&camy=${params.camy}`
 
     const response = await fetch(query)
     
@@ -47,7 +48,8 @@ export interface SaveMandelbrotStruct {
 
 export const save_mandelbrot = async (params: SaveMandelbrotStruct): Promise<Array<any> | null>  => {
 
-    var query = `https://fractal-rest-api.herokuapp.com/mandelbrot/save?author=${params.author}&label=${params.label}&width=${params.width}&height=${params.height}&$iters=${params.iters}&zoom=${params.zoom}&camx=${params.camx}&camy=${params.camy}`
+    // var query = `https://fractal-rest-api.herokuapp.com/mandelbrot/save?author=${params.author}&label=${params.label}&width=${params.width}&height=${params.height}&$iters=${params.iters}&zoom=${params.zoom}&camx=${params.camx}&camy=${params.camy}`
+    var query = `localhost:5000/mandelbrot/save?author=${params.author}&label=${params.label}&width=${params.width}&height=${params.height}&$iters=${params.iters}&zoom=${params.zoom}&camx=${params.camx}&camy=${params.camy}`
 
     const response = await fetch(query)
     
