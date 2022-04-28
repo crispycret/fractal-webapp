@@ -16,14 +16,23 @@ import FractalCanvas from '../components/FractalCanvas';
 
 export const Header = () => {
     return (
-        <ResponsiveAppBar />
+        <div id="header">
+
+            <span className="d-none d-light-inline">Try this website on dark mode.</span>
+            <span className="d-none d-dark-inline">Thank you for saving your eyes in dark mode.</span>
+            {/* <span className="d-no-preference-none d-dark-none d-light-none">Your browser is old!</span> */}
+
+            <ResponsiveAppBar />
+        </div>
     )
 }
 
 
 export const Footer = () => {
     return (
-        <SimpleBottomNavigation />
+        <div id="footer">
+            <SimpleBottomNavigation />
+        </div>
     )
 }
 
