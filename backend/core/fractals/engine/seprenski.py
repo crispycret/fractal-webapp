@@ -1,0 +1,2 @@
+
+class Serpenski: pass

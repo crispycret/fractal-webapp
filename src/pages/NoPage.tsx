@@ -1,7 +1,7 @@
 
 
 
-export const NoPage = () => {
+export const NoPage = (props: any) => {
 
     return (
         <div id="no-page" style={{maxHeight:'100vh', margin: 'auto', paddingTop: '40vh', paddingBottom: '50vh', justifyContent:'center'}}>

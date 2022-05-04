@@ -7,28 +7,27 @@ import styled from "styled-components";
 
 import '../assets/styles/App.css';
 
-import ButtonAppBar from "../components/navigation/ButtonAppBar" ;
 import ResponsiveAppBar from "../components/navigation/ResponsiveAppBar";
 import SimpleBottomNavigation from "../components/navigation/SimpleBottomNavigation";
 
 import FractalCanvas from '../components/FractalCanvas';
 
 
-export const Header = () => {
+export const Header = (props: any) => {
     return (
         <div id="header">
 
-            <span className="d-none d-light-inline">Try this website on dark mode.</span>
-            <span className="d-none d-dark-inline">Thank you for saving your eyes in dark mode.</span>
+            {/* <span className="d-none d-light-inline">Try this website on dark mode.</span> */}
+            {/* <span className="d-none d-dark-inline">Thank you for saving your eyes in dark mode.</span> */}
             {/* <span className="d-no-preference-none d-dark-none d-light-none">Your browser is old!</span> */}
 
-            <ResponsiveAppBar />
+            <ResponsiveAppBar {...props} />
         </div>
     )
 }
 
 
-export const Footer = () => {
+export const Footer = (props: any) => {
     return (
         <div id="footer">
             <SimpleBottomNavigation />
@@ -37,10 +36,10 @@ export const Footer = () => {
 }
 
 
-export const Layout = () => {
+export const Layout = (props: any) => {
     return (
         <div className="Layout">
-            <Header />
+            <Header {...props}/>
 
             <Outlet />
         </div>

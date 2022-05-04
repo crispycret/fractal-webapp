@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 
 import FractalCanvas from '../components/FractalCanvas';
 
-export const FractalEngine = () => {
+export const FractalEngine = (props : any) => {
 
     return (
         <div id="fractal-engine">

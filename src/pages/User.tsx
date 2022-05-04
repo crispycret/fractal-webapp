@@ -4,7 +4,7 @@
 
 
 
-export const User = () => {
+export const User = (props: any) => {
 
     return (
         <div id="user">

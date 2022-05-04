@@ -4,7 +4,7 @@ import '../assets/css/bootstrap.css';
 
 
 
-export const Home = () => {
+export const Home = (props: any) => {
 
 
     const [name, setName] = useState("");
@@ -26,56 +26,59 @@ export const Home = () => {
 
 
     return (
-        <div id="home" style={{minHeight: '100vh', maxHeight:'100vh'}}>
-
-            <section className="vh-100 gradient-custom">
-            <div className="container py-5 h-100">
-                <div className="row d-flex justify-content-center align-items-center h-100">
-                <div className="col-12 col-md-8 col-lg-6 col-xl-5">
-                    <div className="card bg-dark text-white" style={{borderRadius: '1rem'}}>
-                    <div className="card-body p-5 text-center">
-
-                        <div className="mb-md-5 mt-md-4 pb-5">
-
-                        <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
-                        <p className="text-white-50 mb-5">Please enter your login and password!</p>
-
-                        <div className="form-outline form-white mb-4">
-                            <input type="email" id="typeEmailX" className="form-control form-control-lg" />
-                            <label className="form-label" htmlFor="typeEmailX">Email</label>
+        <div>
+            <header className="bg-dark py-5">
+            <div className="container px-5">
+                <div className="row gx-5 justify-content-center">
+                    <div className="col-lg-6">
+                        <div className="text-center my-5">
+                            <h1 className="display-5 fw-bolder text-white mb-2">Present your business in a whole new way</h1>
+                            <p className="lead text-white-50 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit!</p>
+                            <div className="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                                <a className="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
+                                <a className="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
+                            </div>
                         </div>
-
-                        <div className="form-outline form-white mb-4">
-                            <input type="password" id="typePasswordX" className="form-control form-control-lg" />
-                            <label className="form-label" htmlFor="typePasswordX">Password</label>
-                        </div>
-
-                        <p className="small mb-5 pb-lg-2"><a className="text-white-50" href="#!">Forgot password?</a></p>
-
-                        <button className="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
-
-                        <div className="d-flex justify-content-center text-center mt-4 pt-1">
-                            <a href="#!" className="text-white"><i className="fab fa-facebook-f fa-lg"></i></a>
-                            <a href="#!" className="text-white"><i className="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                            <a href="#!" className="text-white"><i className="fab fa-google fa-lg"></i></a>
-                        </div>
-
-                        </div>
-
-                        <div>
-                        <p className="mb-0">Don't have an account? <a href="#!" className="text-white-50 fw-bold">Sign Up</a>
-                        </p>
-                        </div>
-
                     </div>
-                    </div>
-                </div>
                 </div>
             </div>
-            </section>
-
-        </div>
-    );
+        </header>
+        {/* <!-- Features section--> */}
+        <section className="py-5 border-bottom" id="features">
+            <div className="container px-5 my-5">
+                <div className="row gx-5">
+                    <div className="col-lg-4 mb-5 mb-lg-0">
+                        <div className="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i className="bi bi-collection"></i></div>
+                        <h2 className="h4 fw-bolder">Featured title</h2>
+                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                        <a className="text-decoration-none" href="#!">
+                            Call to action
+                            <i className="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div className="col-lg-4 mb-5 mb-lg-0">
+                        <div className="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i className="bi bi-building"></i></div>
+                        <h2 className="h4 fw-bolder">Featured title</h2>
+                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                        <a className="text-decoration-none" href="#!">
+                            Call to action
+                            <i className="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div className="col-lg-4">
+                        <div className="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i className="bi bi-toggles2"></i></div>
+                        <h2 className="h4 fw-bolder">Featured title</h2>
+                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                        <a className="text-decoration-none" href="#!">
+                            Call to action
+                            <i className="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+);
 
 } 
 
